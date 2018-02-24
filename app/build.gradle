@@ -15,6 +15,18 @@ android {
                 cppFlags "-frtti -fexceptions"
             }
         }
+//android studio 与 Ndk关联完毕
+        ndk{
+            //模块的名称，即编译的.so文件名
+            moduleName "hello_jni"
+            //使用STL标准库（默认情况下JNI是无法使用STL标准库的）
+            stl "stlport_static"
+            //"log"表示加入Android的调试日志
+            //可使用_android_log_print方法打印日志到logcation
+            ldLibs "log"
+        }
+
+
     }
     buildTypes {
         release {
